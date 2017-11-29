@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/vagrant/Laravel":{"type":null,"mount_options":["uid=1000","gid=1000"],"guestpath":"/home/vagrant/Laravel","hostpath":"/home/evgeniy/Laravel","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/evgeniy/Homestead","disabled":false,"__vagrantfile":true}}}
