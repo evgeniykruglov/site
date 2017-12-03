@@ -20,4 +20,6 @@ Route::get('/', function () {
 //   return view('simbirsoft');
 //});
 
-Route::get('/simbirsoft/{count}', 'IndexController@fibonacci');
+Route::get('/simbirsoft/{count}', 'IndexController@fibonacci') 
+	->where('count', '[0-9]+')
+	->name('fibonacciSeries');
