@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::post('/simbirsoft', 'IndexController@fibonacci') 
-	->where('count', '[0-9]+')
+	->where('count', '[1-9]+')
 	->name('fibonacciSeries');
 
 
