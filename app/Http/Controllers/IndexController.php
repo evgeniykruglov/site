@@ -4,13 +4,15 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-	public function fibonacci($v) {
+	//public $count = $_POST['count'];
+	public function fibonacci(Request $request) {
+		$v = $request->get('count');
 		$i = 0;
 		$n = 1;
 		$prelastN = 0;
 		$lastN = 0;
 		$stack = array('0');
-		while ($i != $v){
+		while ($i != ($v-1)){
 			$stack[] = $n;
 			$prelastN = $lastN;
 			$lastN = $n;
@@ -21,5 +23,9 @@ class IndexController extends Controller
 		//var_dump($stack);
 		return view('simbirsoft') -> with(['array' => $comma_separated]);
 	
+	}
+		
+	public function post() {
+		//return ($_POST);
 	}
 }

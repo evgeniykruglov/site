@@ -15,11 +15,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-//Route::get('/simbirsoft', function () {
-//   return view('simbirsoft');
-//});
-
-Route::get('/simbirsoft/{count}', 'IndexController@fibonacci') 
+Route::post('/simbirsoft', 'IndexController@fibonacci') 
 	->where('count', '[0-9]+')
 	->name('fibonacciSeries');
+
+
+Route::get('/form', function()	{
+	return view('form');
+});	
+
+Route::post('/form', function()	{
+	print_r($_POST["count"]);
+});	
+
+
+
+
+
