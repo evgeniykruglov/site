@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
 });
+*/
+
+Route::get('/', 'FeedController@index')->name('feed');
 
 Route::post('/simbirsoft', 'IndexController@fibonacci') 
 	->where('count', '[1-9]+')
@@ -29,6 +32,8 @@ Route::post('/form', function()	{
 });	
 
 
+Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');
 
-
+Route::resource('post', 'PostController', ['except' => ('index')]);
