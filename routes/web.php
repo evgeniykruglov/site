@@ -16,12 +16,18 @@
 });
 */
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('post', 'PostController', ['except' => ['index']]);
+
+
 Route::get('/', 'FeedController@index')->name('feed');
 
 Route::post('/simbirsoft', 'IndexController@fibonacci') 
 	->where('count', '[1-9]+')
 	->name('fibonacciSeries');
-
 
 Route::get('/form', function()	{
 	return view('form');
@@ -32,8 +38,4 @@ Route::post('/form', function()	{
 });	
 
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::resource('post', 'PostController', ['except' => ('index')]);
