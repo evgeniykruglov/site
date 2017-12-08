@@ -18,7 +18,9 @@
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'FeedController@index')->name('feed');
+
 
 Route::resource('post', 'PostController', ['except' => ['index']]);
 

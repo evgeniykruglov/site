@@ -67,9 +67,26 @@
                             </li>
                         @endguest
                     </ul>
+
                 </div>
             </div>
         </nav>
+		<div class = "container">
+			<div class="row">
+				<div class = "col-md-8 col-md-offset-2">
+				@if (session('error'))
+					<div class = 'alert alert-danger'>
+						{{ session('error') }}
+					</div>
+				@endif
+				@if (session('success'))
+					<div class = 'alert alert-success'>
+						{{ session('success') }}
+					</div>
+				@endif
+				</div>	
+			</div>
+		</div>
 
         @yield('content')
     </div>

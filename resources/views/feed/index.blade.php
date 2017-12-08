@@ -14,15 +14,23 @@
 		 	<div class="panel-heading">Лента</div>
 			<div class="panel-body">
 				@foreach($posts as $post)
-					@if(auth()->id() == $post->user_id)
 					<div class="panel-heading"> № записи:{{$post->id}} </div>
 						<div class="panel-body"> 
-						<!--<img src="http://ostap73.ru/old/images/Ricar.png">-->
 						<div><img src="{{$post->path}}"></div>
 						Место съемки: {{$post->place}}
-						</div>
+					</div>
+					@if(auth()->id() == $post->user_id)
+					<div align="right"> 	
+						<a href ="{{route('post.edit', ['post' => $post]) }}" class="btn btn-warning">Изменить</a>
+						<form action="{{route('post.destroy', ['post' => $post]) }}" method="post" >
+						{{csrf_field() }}
+						{{method_field('DELETE')}}
+						<button type="submit" class="btn btn-danger">Удалить</button>
+						</form>
+					</div>
+					@endif	
 						<hr>						
-					@endif
+					
 				@endforeach
 				
 			</div>
