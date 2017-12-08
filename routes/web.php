@@ -33,7 +33,7 @@ Route::post('/simbirsoft', 'IndexController@fibonacci')
 
 Route::get('/form', function()	{
 	return view('form');
-});	
+})->name('fibonacciForm');	
 
 Route::post('/form', function()	{
 	print_r($_POST["count"]);
