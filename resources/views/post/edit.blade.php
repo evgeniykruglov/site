@@ -7,16 +7,19 @@
 		<div class="col-md-8 col-md-offset-2">
 		<div class="panel panel-default" align = "center">
 			<form action="{{route('post.update', ['post' => $post]) }}" method="post" enctype="multipart/form-data">
-				<label for="place">Место съемки</label>
-				<input type="text" class="form-contol" id="place" name="place" value="{{$post->place}}">
+					<label for="place">Место съемки</label>
+					<input type="text" class="form-contol" id="place" name="place" value="{{$post->place}}">
 				<div class = "form-group">
 				<input type = "file" id ="photo" name = "photo" required> 
-				{{csrf_field() }}
+					{{csrf_field() }}
 					{{method_field('PUT')}}
 				</div>
-				<button type="submit" class="btn btn-primary">Сохранить</button>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">Сохранить</button>
+				</div>
 			</form> 
 		</div>
 	</div>
+</div>
 </div>
 @endsection

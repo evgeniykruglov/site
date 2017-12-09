@@ -16,7 +16,7 @@
 				@foreach($posts as $post)
 					<div class="panel-heading"> № записи:{{$post->id}} </div>
 						<div class="panel-body"> 
-						<div><img src="{{$post->path}}"></div>
+						<div><img width="100%" src="{{$post->path}}"></div>
 						Место съемки: {{$post->place}}
 					</div>
 					@if(auth()->id() == $post->user_id)
@@ -29,6 +29,14 @@
 						</form>
 					</div>
 					@endif	
+					<div>
+						<strong>Комментарии:</strong>
+						@forelse ($post->comments as $comments)
+							<div>{{$comments->created_at}}-{{$comments->text}}</div>
+						@empty
+							<div>Нет комментариев</div>
+						@endforelse
+					</div>
 						<hr>						
 					
 				@endforeach

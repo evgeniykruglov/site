@@ -28,11 +28,11 @@ class PostController extends Controller
 		
 		$post -> saveOrFail();
 		
-		$request -> session()->flash('success', 'success');
+		$request -> session()->flash('success', 'Запись успешно создана');
 		return redirect('/');	
 		}
 		else {
-			$request -> session()->flash('error', 'error');
+			$request -> session()->flash('error', 'Ошибка создания записи');
 		}
 	}
     public function show (Post $post)
@@ -59,11 +59,11 @@ class PostController extends Controller
 		$post -> place = $request->post('place');
 		$post -> saveOrFail();
 		
-		$request -> session()->flash('success', 'Запись успешно создана');
+		$request -> session()->flash('success', 'Запись успешно обновлена');
 		return redirect('/');
 		}
 		else {
-			$request -> session()->flash('error', 'Ошибка создания записи');
+			$request -> session()->flash('error', 'Ошибка обновления записи');
 		}
 	}
 	public function destroy (Request $request, Post $post)
