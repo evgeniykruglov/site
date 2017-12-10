@@ -12,23 +12,27 @@
 		<div class="col-md-8 col-md-offset-2">
 		<div class="panel panel-default">
 		 	<div class="panel-heading">Лента</div>
-			<div class="panel-body">
-				@foreach($posts as $post)
-					<div class="panel-heading"> № записи:{{$post->id}} </div>
-						<div class="panel-body"> 
-						<div><img width="100%" src="{{$post->path}}"></div>
-						Место съемки: {{$post->place}}
-					</div>
-					@if(auth()->id() == $post->user_id)
-					<div align="right"> 	
-						<a href ="{{route('post.edit', ['post' => $post]) }}" class="btn btn-warning">Изменить</a>
-						<form action="{{route('post.destroy', ['post' => $post]) }}" method="post" >
-						{{csrf_field() }}
-						{{method_field('DELETE')}}
-						<button type="submit" class="btn btn-danger">Удалить</button>
-						</form>
-					</div>
-					@endif	
+			@foreach($posts as $post)
+				<div class="panel-body">
+					<div class="panel-heading"> № записи:{{$post->id}} 
+						<div>Место съемки: {{$post->place}} </div>
+						<div>Автор: {{$post->user_id}} </div>
+						<div> 
+						<div style="margin-bottom: 10px;"><img width="100%" src="{{$post->path}}"></div>
+					@if(auth()->id() == $post->user_id)	
+						<div class = "col-xs-6">
+							<a href ="{{route('post.edit', ['post' => $post]) }}" class="btn btn-warning">Изменить</a>
+						</div>
+						<div class = "col-xs-6" align="right">
+							<form action="{{route('post.destroy', ['post' => $post]) }}" method="post" >
+							{{csrf_field() }}
+							{{method_field('DELETE')}}
+							<button type="submit" class="btn btn-danger">Удалить</button>
+							</form>
+						</div>
+					@endif
+						</div>
+					</div>					
 					<div>
 						<strong>Комментарии:</strong>
 						@forelse ($post->comments as $comments)
@@ -53,11 +57,10 @@
 						</blockquote>
 						@endguest
 					</div>
-						<hr>						
-					
-				@endforeach
-				
-			</div>
+				</div>
+				<hr>						
+			@endforeach				
+		</div>
 		</div>
 	</div>
 </div>	
