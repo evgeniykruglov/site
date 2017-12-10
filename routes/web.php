@@ -23,7 +23,7 @@ Route::get('/home', 'FeedController@index')->name('feed');
 
 
 Route::resource('post', 'PostController', ['except' => ['index']]);
-//Route::resource('post', 'CommentsController', ['except' => ['index']]);
+Route::resource('comment', 'CommentController', ['except' => ['index']]);
 
 Route::get('/', 'FeedController@index')->name('feed');
 

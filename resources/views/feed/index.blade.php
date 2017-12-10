@@ -37,6 +37,22 @@
 							<div>Нет комментариев</div>
 						@endforelse
 					</div>
+					<div>
+						@guest
+						@else
+						<blockquote>
+						<form action="{{url('/comment')}}" method="post" >
+							<label for="text">Новый комментарий</label>
+							<input type="text" class="form-contol" id="text" name="text" required>
+							<input type="hidden" name="post_id" value="{{$post->id}}">
+							{{csrf_field() }}
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary">Опубликовать</button>
+							</div> 
+						</form>
+						</blockquote>
+						@endguest
+					</div>
 						<hr>						
 					
 				@endforeach
