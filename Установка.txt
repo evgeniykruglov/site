@@ -1,0 +1,7 @@
+Редирект с public в storage
+Создать ярлык для storage в папке паблик
+php artisan storage:link
+
+Установка админки
+http://cccp-blog.com/laravel/laravel-admin-panel#frozennode-laravel-administrator
+https://aleks-r.com/blog/l
