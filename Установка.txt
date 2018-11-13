@@ -4,4 +4,5 @@ php artisan storage:link
 
 Установка админки
 http://cccp-blog.com/laravel/laravel-admin-panel#frozennode-laravel-administrator
-https://aleks-r.com/blog/l
+https://aleks-r.com/blog/laravel-5-admin-paneli/
+composer global require "acacha/adminlte-laravel-installer"
