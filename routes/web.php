@@ -39,10 +39,7 @@ Route::post('/form', function()	{
 	print_r($_POST["count"]);
 });	
 
-
-
-
-
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+

@@ -17,7 +17,8 @@ return [
         // Set `namespace` to a class to override auth user model.
         // However make sure the appointed class must ready to use before installing voyager.
         // Otherwise `php artisan voyager:install` will fail with class not found error.
-        'namespace'                    => null,
+        //'namespace'                    => null,
+		'namespace'                    => App\User::class,
         'default_avatar'               => 'users/default.png',
         'redirect'                     => '/admin',
     ],
